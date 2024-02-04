@@ -13,6 +13,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsToMany(models.Role , {
+        through:'User_Roles'//This means that when you query the associated model, you can use the specified alias ('User') instead of the actual model name (models.User).
+      });
     }
   }
   User.init({
